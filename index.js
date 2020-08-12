@@ -28,7 +28,7 @@ const connection = mysql.createConnection({
 // });
 
 
-// connection.connect();
+connection.connect();
 
 app.get('/', (req, res) => {
 
@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
     if (error) console.log(error.sqlMessage);
     res.send(resultado);
   })
-  
+
   connection.end();
 
 });
