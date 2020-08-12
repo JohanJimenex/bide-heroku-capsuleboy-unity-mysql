@@ -12,12 +12,12 @@ app.listen(app.get('puerto'), () => {
   console.log('servidor en puerto: ' + app.get('puerto'));
 });
 //datos de la bd de mysql en clever cloud
-const connection = mysql.createConnection({
-  host: 'bbsrlurro88etfdnmjgs-mysql.services.clever-cloud.com',
-  user: 'um1ioakavsbwu5ar',
-  password: 'qkkf9sZsKvoAZXW6YwUL',
-  database: 'bbsrlurro88etfdnmjgs'
-});
+// const connection = mysql.createConnection({
+//   host: 'bbsrlurro88etfdnmjgs-mysql.services.clever-cloud.com',
+//   user: 'um1ioakavsbwu5ar',
+//   password: 'qkkf9sZsKvoAZXW6YwUL',
+//   database: 'bbsrlurro88etfdnmjgs'
+// });
 
 //datos en 000webhost.com
 // const connection = mysql.createConnection({
@@ -27,18 +27,29 @@ const connection = mysql.createConnection({
 //   database: 'id13590587_capsuleboydb'
 // });
 
+// datos en local
 
-connection.connect();
+
 
 app.get('/', (req, res) => {
+  
+  const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'scorecapsule'
+  });
+  
+  connection.connect();
 
   //Consulta
   connection.query("SELECT * FROM scorecapsule ORDER BY record DESC;", (error, resultado, detallesTabla) => {//funtion anonima con un callback que devuelve 3 variables
     if (error) console.log(error.sqlMessage);
     res.send(resultado);
-  })
 
-  connection.end();
+    connection.end();
+
+  });
 
 });
 
