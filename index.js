@@ -11,13 +11,22 @@ app.set('puerto', process.env.PORT || 2323);
 app.listen(app.get('puerto'), () => {
   console.log('servidor en puerto: ' + app.get('puerto'));
 });
-
+//datos de la bd de mysql en clever cloud
 const connection = mysql.createConnection({
   host: 'bbsrlurro88etfdnmjgs-mysql.services.clever-cloud.com',
   user: 'um1ioakavsbwu5ar',
   password: 'qkkf9sZsKvoAZXW6YwUL',
   database: 'bbsrlurro88etfdnmjgs'
 });
+
+//datos en 000webhost.com
+// const connection = mysql.createConnection({
+//   host: 'databases.000webhost.com',
+//   user: 'id13590587_mangugames',
+//   password: '&1Na{j%drs]Y0/s2',
+//   database: 'id13590587_capsuleboydb'
+// });
+
 
 connection.connect();
 
