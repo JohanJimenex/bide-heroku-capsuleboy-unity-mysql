@@ -30,8 +30,17 @@ app.listen(app.get('puerto'), () => {
 //   database: 'scorecapsule'
 // });
 
-//datos de la bd de mysql en clever cloud
-const connection = mysql.createConnection({
+// //datos de la bd de mysql en clever cloud
+// var connection = mysql.createConnection({
+//   host: 'bbsrlurro88etfdnmjgs-mysql.services.clever-cloud.com',
+//   user: 'um1ioakavsbwu5ar',
+//   password: 'qkkf9sZsKvoAZXW6YwUL',
+//   database: 'bbsrlurro88etfdnmjgs'
+// });
+
+//mejor practica con pool
+var connection = mysql.createPool({
+  connectionLimit: 10,
   host: 'bbsrlurro88etfdnmjgs-mysql.services.clever-cloud.com',
   user: 'um1ioakavsbwu5ar',
   password: 'qkkf9sZsKvoAZXW6YwUL',
@@ -39,7 +48,6 @@ const connection = mysql.createConnection({
 });
 
 app.get('/', (req, res) => {
-  
 
   connection.connect();
 
