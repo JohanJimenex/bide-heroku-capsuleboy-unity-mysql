@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
     res.send(resultado);
   })
   
-  connection.end();
+  // connection.end();
 
 });
 
