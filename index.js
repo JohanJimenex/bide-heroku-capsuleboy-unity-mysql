@@ -49,7 +49,7 @@ var connection = mysql.createPool({
 
 app.get('/', (req, res) => {
 
-  connection.connect();
+  // connection.connect();
 
   //Consulta
   connection.query("SELECT * FROM scorecapsule ORDER BY record DESC;", (error, resultado, detallesTabla) => {//funtion anonima con un callback que devuelve 3 variables
