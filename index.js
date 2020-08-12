@@ -28,7 +28,7 @@ const connection = mysql.createConnection({
 // });
 
 
-connection.connect();
+// connection.connect();
 
 app.get('/', (req, res) => {
 
