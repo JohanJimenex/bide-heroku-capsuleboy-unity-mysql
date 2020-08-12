@@ -11,13 +11,7 @@ app.set('puerto', process.env.PORT || 2323);
 app.listen(app.get('puerto'), () => {
   console.log('servidor en puerto: ' + app.get('puerto'));
 });
-//datos de la bd de mysql en clever cloud
-// const connection = mysql.createConnection({
-//   host: 'bbsrlurro88etfdnmjgs-mysql.services.clever-cloud.com',
-//   user: 'um1ioakavsbwu5ar',
-//   password: 'qkkf9sZsKvoAZXW6YwUL',
-//   database: 'bbsrlurro88etfdnmjgs'
-// });
+
 
 //datos en 000webhost.com
 // const connection = mysql.createConnection({
@@ -29,17 +23,24 @@ app.listen(app.get('puerto'), () => {
 
 // datos en local
 
+// const connection = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: '',
+//   database: 'scorecapsule'
+// });
 
 
 app.get('/', (req, res) => {
   
+  //datos de la bd de mysql en clever cloud
   const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'scorecapsule'
+    host: 'bbsrlurro88etfdnmjgs-mysql.services.clever-cloud.com',
+    user: 'um1ioakavsbwu5ar',
+    password: 'qkkf9sZsKvoAZXW6YwUL',
+    database: 'bbsrlurro88etfdnmjgs'
   });
-  
+
   connection.connect();
 
   //Consulta
