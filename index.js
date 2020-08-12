@@ -30,16 +30,16 @@ app.listen(app.get('puerto'), () => {
 //   database: 'scorecapsule'
 // });
 
+//datos de la bd de mysql en clever cloud
+const connection = mysql.createConnection({
+  host: 'bbsrlurro88etfdnmjgs-mysql.services.clever-cloud.com',
+  user: 'um1ioakavsbwu5ar',
+  password: 'qkkf9sZsKvoAZXW6YwUL',
+  database: 'bbsrlurro88etfdnmjgs'
+});
 
 app.get('/', (req, res) => {
   
-  //datos de la bd de mysql en clever cloud
-  const connection = mysql.createConnection({
-    host: 'bbsrlurro88etfdnmjgs-mysql.services.clever-cloud.com',
-    user: 'um1ioakavsbwu5ar',
-    password: 'qkkf9sZsKvoAZXW6YwUL',
-    database: 'bbsrlurro88etfdnmjgs'
-  });
 
   connection.connect();
 
@@ -47,8 +47,6 @@ app.get('/', (req, res) => {
   connection.query("SELECT * FROM scorecapsule ORDER BY record DESC;", (error, resultado, detallesTabla) => {//funtion anonima con un callback que devuelve 3 variables
     if (error) console.log(error.sqlMessage);
     res.send(resultado);
-
-    connection.end();
 
   });
 
